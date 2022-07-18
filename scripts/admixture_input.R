@@ -1,21 +1,21 @@
 
 rm(list = ls())
 
-FILE <- "raw_data/Mali"
+FILE <- "data/raw_data/Mali"
 
 plink <-"~/Documents/Mes_Programmes/plink_linux_x86_64_20181202/plink"
 
-common_isolates <- read_tsv("raw_data/Mali_bi_final_samples_maf01.filtered.nosex", col_names = F) %>% 
+common_isolates <- read_tsv("data/raw_data/Mali_bi_final_samples_maf01.filtered.nosex", col_names = F) %>% 
     inner_join(metadata, by = c("X1" = "Sample"))
 
 common_isolates %>% 
     dplyr::select(X1, X2) %>% 
-    write.table("samples_in_metadata.txt", col.names = F, row.names = F, quote = F)
+    write.table("data/metadata/samples_in_metadata.txt", col.names = F, row.names = F, quote = F)
 
 common_isolates %>% 
     rename(Samples = X1) %>% 
     dplyr::select(Samples, Location) %>% 
-    write.table("metadata.txt", col.names = T, row.names = F, quote = F, sep = '\t')
+    write.table("data/metadata/metadata.txt", col.names = T, row.names = F, quote = F, sep = '\t')
 
 # Generate the input file in plink format
 system(paste0(plink, " --vcf ", FILE, 

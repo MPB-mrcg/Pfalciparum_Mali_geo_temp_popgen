@@ -1,35 +1,39 @@
 
 
 rm(list = ls())
+
+# Load packages
 library(tidyverse)
 library(ggrepel)
-library(ggpubr)
+library(readxl)
 library(patchwork)
 library(RColorBrewer)
 
-setwd("~/Documents/Aoua_PhD/data/data_filt/Tajima_results/")
-
-Bamako <- readxl::read_xlsx("Bamako.filtered_fuli.xlsx") %>% 
+Bamako <- read_xlsx("results/tables/Bamako.filtered_fuli.xlsx") %>% 
     separate(Pos, c("Start", "End")) %>% 
     type_convert()
 
-Bougoula_Hameau <- readxl::read_xlsx("Bougoula-Hameau.filtered_fuli.xlsx") %>% 
-    separate(Pos, c("Start", "End")) %>% 
-    type_convert()
-Dangassa <- readxl::read_xlsx("Dangassa.filtered_fuli.xlsx") %>% 
+Bougoula_Hameau <- read_xlsx("results/tables/Bougoula-Hameau.filtered_fuli.xlsx") %>% 
     separate(Pos, c("Start", "End")) %>% 
     type_convert()
 
-Faladje <- readxl::read_xlsx("Faladje.filtered_fuli.xlsx") %>% 
+Dangassa <- read_xlsx("results/tables/Dangassa.filtered_fuli.xlsx") %>% 
     separate(Pos, c("Start", "End")) %>% 
     type_convert()
-Kenieroba <- readxl::read_xlsx("Kenieroba.filtered_fuli.xlsx") %>% 
+
+Faladje <- read_xlsx("results/tables/Faladje.filtered_fuli.xlsx") %>% 
     separate(Pos, c("Start", "End")) %>% 
     type_convert()
-Kolle <- readxl::read_xlsx("Kolle.filtered_fuli.xlsx") %>% 
+
+Kenieroba <- read_xlsx("results/tables/Kenieroba.filtered_fuli.xlsx") %>% 
     separate(Pos, c("Start", "End")) %>% 
     type_convert()
-Nioro <- readxl::read_xlsx("nioro.filtered_fuli.xlsx") %>% 
+
+Kolle <- read_xlsx("results/tables/Kolle.filtered_fuli.xlsx") %>% 
+    separate(Pos, c("Start", "End")) %>% 
+    type_convert()
+
+Nioro <- read_xlsx("results/tables/nioro.filtered_fuli.xlsx") %>% 
     separate(Pos, c("Start", "End")) %>% 
     type_convert()
 
@@ -117,7 +121,6 @@ df20 <- left_join(Kenieroba, Nioro, by = c("Gene", "Chrom", "Start", "End"))  %>
 df21 <- left_join(Kolle, Nioro, by = c("Gene", "Chrom", "Start", "End"))  %>% 
     select(Gene, Chrom, Start, End, TajimasD.x, TajimasD.y) %>% 
     add_column(Pairwise = paste("Kolle", "Nioro", sep = "_"))
-
 
 
 ## IDENTIFY TOP GENES
@@ -237,11 +240,7 @@ ggplot(df, aes(x = TajimasD.x, y = TajimasD.y)) +
     geom_point() + 
     geom_abline(color = "red", slope = 1) + 
     xlim(-2, 5) + ylim(-3, 4) +
-    
-    theme(legend.position = "none",
-          axis.line = element_line(colour = "black"),
-          axis.text=element_text(size=8.5, face="bold"),
-          axis.title=element_text(size=10,face="bold")) +
+   
     geom_point(data = outliers, 
                aes(x = TajimasD.x, y = TajimasD.y), 
                color ='red') +
@@ -249,7 +248,12 @@ ggplot(df, aes(x = TajimasD.x, y = TajimasD.y)) +
                      force = 5, size = 1.5, force_pull = 5, max.overlaps = Inf,
                      segment.colour = "black", fontface = 'bold', color = 'black', 
                      box.padding = unit(0.35, "lines"), point.padding = unit(0.5, "lines")) +
+
+	theme(legend.position = "none",
+          axis.line = element_line(colour = "black"),
+          axis.text = element_text(size = 8.5, face = "bold"),
+          axis.title = element_text(size = 10,face = "bold")) +
     facet_wrap(~Pairwise)
 
 ## SAVE PLOT
-ggsave(filename = "correlation_plots.jpeg", width = 20, height = 10)
+ggsave(filename = "results/figures/correlation_plots.jpeg", width = 20, height = 10)
