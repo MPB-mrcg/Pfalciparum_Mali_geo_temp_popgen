@@ -80,7 +80,7 @@ seed=1
 files=`ls $v/*gz`
 file1=`echo $files | cut -d" " -f $SLURM_ARRAY_TASK_ID`
 
-chmod +x fuli.R
-${workingDir}/fuli.R $v $g $o
+chmod +x neutrality_test.R
+${workingDir}/neutrality_test.R $v $g $o
 
 sleep 1
