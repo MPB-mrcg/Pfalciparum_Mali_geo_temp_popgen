@@ -20,7 +20,7 @@ The following need to be installed and in the path...
     * tess3r (v0.5.0)
     * tidyverse (v1.3.2)
 - [Rstudio](https://rstudio.com/products/rstudio/download/)
-- [ADMIXTURE](www.genetics.ucla.edu/software/admixture) (v1.3.0)
+- [ADMIXTURE](https://dalexander.github.io/admixture/download.html) (v1.3.0)
 - [vcflib](https://github.com/vcflib/vcflib) (v1.0.3)
 - [plink](https://www.cog-genomics.org/plink/2.0/) (v2.0)
 - [bcftools](https://samtools.github.io/bcftools/bcftools.html) (v1.9)
