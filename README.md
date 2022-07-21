@@ -7,13 +7,22 @@ This includes plots in the main text and in the supplemental material. In cases 
 
 The following need to be installed and in the path...
 
-- [R](https://www.r-project.org/)
-    * knitr / rmarkdown
-	* ggplot2 (v.2.1.0.9001)
-    * dplyr (v.0.5.0)
-    * tidyr (v.0.6.0)
-    * cowplot (v.0.6.9990)
-    * tidyverse (v.0.3.2)
+- [R](https://www.r-project.org/) (v4.0.3 (2020-10-10))
+	* cowplot (v1.1.1)
+	* dplyr (v1.0.9)
+    * hierfstat (v0.5-11)
+	* moimix
+	* PopGenome (v2.7.5)
+	* patchwork (v1.1.1)
+	* pophelper (v2.3.1)
+	* rehh (v3.2.2)	
+    * SNPRelate (v1.30.0)
+    * tess3r (v0.5.0)
+    * tidyverse (v1.3.2)
 - [Rstudio](https://rstudio.com/products/rstudio/download/)
-- [vcflib](https://github.com/vcflib/vcflib)
-- [McCOILR](https://github.com/OJWatson/McCOILR)
+- [ADMIXTURE](www.genetics.ucla.edu/software/admixture) (v1.3.0)
+- [vcflib](https://github.com/vcflib/vcflib) (v1.0.3)
+- [plink](https://www.cog-genomics.org/plink/2.0/) (v2.0)
+- [bcftools](https://samtools.github.io/bcftools/bcftools.html) (v1.9)
+- [vcftools](http://vcftools.sourceforge.net/man_latest.html) (v0.1.17)
+
