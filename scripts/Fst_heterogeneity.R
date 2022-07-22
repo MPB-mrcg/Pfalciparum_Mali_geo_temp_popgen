@@ -1,4 +1,6 @@
 
+rm(list = ls())
+
 library(patchwork)
 library(tidyverse)
 
@@ -46,7 +48,8 @@ limits <- c(min(fst.format$Fst), max(fst.format$Fst)+0.1)
 ebfst.plot <- ggplot(fst.format, aes(x = BPcum, y = Fst, color = as_factor(CHR))) +
     # Show all points
     geom_point(size = .3) +
-    geom_hline(yintercept = quantile(fst.format$Fst, 0.99), color = "darkred", size = 0.3) +
+    geom_hline(yintercept = quantile(fst.format$Fst, 0.99), 
+               linetype = "dashed", color = "darkred", size = 0.3) +
     
     # custom X axis:
     scale_x_continuous(label = axis$CHR, breaks = axis$center) +
@@ -64,7 +67,7 @@ ebfst.plot <- ggplot(fst.format, aes(x = BPcum, y = Fst, color = as_factor(CHR))
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
         axis.line = element_line(colour = "black"),
-        axis.title.y = element_text(face = "bold.italic", size = 8),
+        axis.title.y = element_text(face = "bold", size = 8),
         axis.text.y = element_text(colour = "black", face = "bold", size = 6))
 
 
@@ -105,7 +108,8 @@ ylimits <- c(min(Fst.format$X5), max(Fst.format$X5)+0.1)
 plot1 <- ggplot(Fst.format, aes(x = BPcum, y = X5, color = as_factor(Chr))) +
     # Show all points
     geom_point(size = .3) +
-    geom_hline(yintercept = quantile(Fst.format$X5, 0.99), color = "darkred", size = 0.3) +
+    geom_hline(yintercept = quantile(Fst.format$X5, 0.99), 
+               linetype = "dashed", color = "darkred", size = 0.3) +
     
     # custom X axis:
     scale_x_continuous(label = axis_set$Chr, breaks = axis_set$center) +
@@ -124,7 +128,7 @@ plot1 <- ggplot(Fst.format, aes(x = BPcum, y = X5, color = as_factor(Chr))) +
         axis.title.x = element_blank(),
         axis.text.x = element_blank(),
         axis.line = element_line(colour = "black"),
-        axis.title.y = element_text(face = "bold.italic", size = 8),
+        axis.title.y = element_text(face = "bold", size = 8),
         axis.text.y = element_text(colour = "black", face = "bold", size = 6))
 
 #=============================================================
@@ -160,7 +164,8 @@ axis_set1 <- Fst1.format %>%
 plot2 <- ggplot(Fst1.format, aes(x = BPcum, y = X5, color = as_factor(Chr))) +
     # Show all points
     geom_point(size = .3) +
-    geom_hline(yintercept = quantile(Fst1.format$X5, 0.99), color = "darkred", size = 0.3) +
+    geom_hline(yintercept = quantile(Fst1.format$X5, 0.99), 
+               linetype = "dashed", color = "darkred", size = 0.3) +
     
     # custom X axis:
     scale_x_continuous(label = axis_set1$Chr, breaks = axis_set1$center) +
@@ -168,7 +173,7 @@ plot2 <- ggplot(Fst1.format, aes(x = BPcum, y = X5, color = as_factor(Chr))) +
     scale_color_manual(values = rep(c("gray30", "firebrick"), unique(length(axis_set1$Chr)))) +
     scale_size_continuous(range = c(0.5,3)) +
     labs(x = "Chromosomes", y = "Fst") +
-    ggtitle('Faladje 2007-2015_17') +
+    ggtitle('Faladje 2007-2015_2017') +
     
     # Custom the theme:
     theme_minimal() +
@@ -178,7 +183,7 @@ plot2 <- ggplot(Fst1.format, aes(x = BPcum, y = X5, color = as_factor(Chr))) +
         axis.line = element_line(colour = "black"),
         # axis.title.x = element_blank(),
         # axis.text.x = element_blank(),
-        axis.title = element_text(face = "bold.italic", size = 8),
+        axis.title = element_text(face = "bold", size = 8),
         axis.text = element_text(colour = "black", face = "bold", size = 6))
 
 #=======================================================

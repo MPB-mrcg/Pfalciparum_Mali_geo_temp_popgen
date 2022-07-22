@@ -89,7 +89,7 @@ for (i in 1:(length(year)-1)) {
 #=======================
 # Heterogeneity Faladje
 #======================
-# NB: We combined samples from 2015 and 2017 into one
+# NB: We combined samples from 2015, 2016 and 2017 into one
 
 #============
 # 2007 -2013
@@ -109,11 +109,13 @@ system(paste0(wcFst, "--target ", target,
               output))
 
 #==================
-# 2007 - 2015/2017
+# 2007 - 2015/2016/2017
 #==================
 output <- paste0("results/tables/Fst/Heterogeneity/wcFst_07_1517.txt")
 
-background <- metadata %>% filter(Location == "Faladje" & (Year == 2015 | Year == 2017)) %>% pull(index)
+background <- metadata %>%
+    filter(Location == "Faladje" & (Year == 2015 | Year == 2016 | Year == 2017)) %>%
+    pull(index)
 background <- paste(background, collapse=",")
 
 system(paste0(wcFst, "--target ", target,
@@ -124,7 +126,7 @@ system(paste0(wcFst, "--target ", target,
 
 
 #============
-# 2013 -2015/2017
+# 2013 -2015/2016/2017
 #============
 output <- paste0("results/tables/Fst/Heterogeneity/wcFst_13_1517.txt")
 
