@@ -19,6 +19,7 @@ The following need to be installed and in the path...
     * SNPRelate (v1.30.0)
     * tess3r (v0.5.0)
     * tidyverse (v1.3.2)
+	* LDheatmap
 - [Rstudio](https://rstudio.com/products/rstudio/download/)
 - [ADMIXTURE](https://dalexander.github.io/admixture/download.html) (v1.3.0)
 - [vcflib](https://github.com/vcflib/vcflib) (v1.0.3)
