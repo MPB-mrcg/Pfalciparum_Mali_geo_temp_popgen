@@ -8,9 +8,13 @@ This includes plots in the main text and in the supplemental material. In cases 
 The following need to be installed and in the path...
 
 - [R](https://www.r-project.org/) (v4.0.3 (2020-10-10))
+	* adegenet
+	* ggplot2
 	* cowplot (v1.1.1)
 	* dplyr (v1.0.9)
-    * hierfstat (v0.5-11)
+	* fdrtool
+    * finepop
+	* mmod
 	* moimix
 	* PopGenome (v2.7.5)
 	* patchwork (v1.1.1)

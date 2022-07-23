@@ -1,7 +1,4 @@
 
-
-data/
-*.xlsx
 .Rhistory
 .Rproj.user/
 *.RData
